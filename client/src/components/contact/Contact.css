@@ -1,0 +1,91 @@
+
+
+.contact {
+  color: white;
+  position: relative;
+  background-color: #708090;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 20px;
+  font-weight: bolder;
+  border-radius: 5%;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.form-group {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  width: 600px;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none; /* Prevent textarea from being resized */
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 10px;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

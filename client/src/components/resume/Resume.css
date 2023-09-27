@@ -1,0 +1,71 @@
+
+
+.resume-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.resume-container {
+  max-width: 800px;
+  padding: 20px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+
+a {
+  color: #1f0b8c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-top: 10px;
+  
+}
+
+
+.resumeHeader{
+  text-align: center;
+  margin: 10px;
+  color: black;
+}
+
+.classBHeader{
+  text-align: left;
+  margin: 20px;
+  font-weight: 600;
+}
+
+p {
+  margin: 10px;
+  text-align: center;
+}
