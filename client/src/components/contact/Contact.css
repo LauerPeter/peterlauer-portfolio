@@ -5,20 +5,21 @@
   position: relative;
   background-color: #708090;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 10px;
   width: fit-content;
-  height: fit-content;
+  height:max-content;
   font-size: 20px;
   font-weight: bolder;
-  border-radius: 5%;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 2%;
 }
 
 
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
 }
 
 .form-group {
@@ -68,8 +69,14 @@ form {
   flex-direction: column;
 }
 
+#firstName,
+#lastName,
+#company,
+#email{
+  width: 300px;
+}
 textarea {
-  width: 600px;
+  width: 640px;
   height: 200px;
   padding: 10px;
   border: 1px solid #ccc;

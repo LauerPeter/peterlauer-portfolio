@@ -53,6 +53,10 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (errors.firstName || errors.lastName || errors.email) {
+      alert('Please fix the validation errors before sending the email.');
+      return;
+    }
     axios({
       method: 'POST',
       url: 'https://peterlauer-portfolio-e7f9019d6d53.herokuapp.com/api/sendEmail',
