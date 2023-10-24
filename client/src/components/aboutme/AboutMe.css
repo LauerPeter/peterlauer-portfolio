@@ -8,11 +8,11 @@
   margin-top: auto;
   margin-bottom: 10px;
   background-color: #708090;
-  border-radius: 1%;
+  border-radius: 1.5%;
+  border: 2px solid #ccc;
   padding: 20px;
   font-size: 21px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .aboutmeheader{

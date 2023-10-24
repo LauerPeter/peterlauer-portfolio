@@ -17,6 +17,7 @@ function Contact() {
     firstName: '',
     lastName: '',
     email: '',
+    message: '',
   });
 
   const IsSent = useState(false); // Track if the email has been sent
@@ -36,27 +37,46 @@ function Contact() {
     if (name === 'firstName') {
       setErrors({
         ...errors,
-        firstName: value.trim() === '' ? 'Invalid First Name' : '',
+        firstName: value.trim() === '' ? 'First Name is required' : '',
       });
     } else if (name === 'lastName') {
       setErrors({
         ...errors,
-        lastName: value.trim() === '' ? 'Invalid Last Name' : '',
+        lastName: value.trim() === '' ? 'Last Name is required' : '',
       });
     } else if (name === 'email') {
       setErrors({
         ...errors,
         email: !validateEmail(value) ? 'Invalid Email Address' : '',
       });
+    } else if (name === 'message') {
+      setErrors({
+        ...errors,
+        message: value.trim() === '' ? 'Message is required' : '',
+      });
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (errors.firstName || errors.lastName || errors.email) {
-      alert('Please fix the validation errors before sending the email.');
+
+    // Check for empty required fields
+    if (formData.firstName === '' || formData.lastName === '' || formData.email === '' || formData.message === '') {
+      setErrors({
+        ...errors,
+        firstName: formData.firstName === '' ? 'First Name is required' : '',
+        lastName: formData.lastName === '' ? 'Last Name is required' : '',
+        email: formData.email === '' ? 'Email is required' : '',
+        message: formData.message === '' ? 'Message is required' : '',
+      });
       return;
     }
+
+    // Check for validation errors
+    if (errors.firstName || errors.lastName || errors.email || errors.message) {
+      return;
+    }
+
     axios({
       method: 'POST',
       url: 'https://peterlauer-portfolio-e7f9019d6d53.herokuapp.com/api/sendEmail',
@@ -80,7 +100,7 @@ function Contact() {
       console.error('Email sending failed:', error);
       alert('Message failed to send.');
     });
-};
+  };
 
   return (
     <div className="contact">
@@ -139,6 +159,7 @@ function Contact() {
             value={formData.message}
             onChange={handleInputChange}
           ></textarea>
+          {errors.message && <p className="error">{errors.message}</p>}
         </div>
         <button type="submit">Submit</button>
       </form>
