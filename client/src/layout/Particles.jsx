@@ -20,9 +20,9 @@ export default function ParticleCom() {
           },
           "particles": {
             "number": {
-              "value": 12,
+              "value": 14,
               "density": {
-                "enable": false
+                "enable": true
               }
             },
             "color": {
@@ -32,17 +32,17 @@ export default function ParticleCom() {
               "type": "circle" 
             },
             "opacity": {
-              "value": 0.8
+              "value": 1
             },
             "size": {
-              "value": 4
+              "value": 2
             },
             "line_linked": {
               "enable": true,
-              "distance": 600,
+              "distance": 1200,
               "color": "#708090",
               "opacity": 0.4,
-              "width": 3
+              "width": 4
             },
             "move": {
               "enable": true,
