@@ -5,8 +5,6 @@ import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
-  console.log("Header component is rendering.");
-  
   return (
     <header>
       <nav>

@@ -10,7 +10,7 @@ export default function ParticleCom() {
   };
 
   return (
-    <div>
+    <div style={{ pointerEvents: 'none'}} >
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -32,7 +32,7 @@ export default function ParticleCom() {
               "type": "circle" 
             },
             "opacity": {
-              "value": 1
+              "value": 0.6
             },
             "size": {
               "value": 2

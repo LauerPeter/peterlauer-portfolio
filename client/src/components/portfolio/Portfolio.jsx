@@ -1,6 +1,6 @@
 
 
-import React from 'react';
+import React, {useState} from 'react';
 import './Portfolio.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaRocket } from 'react-icons/fa';
@@ -8,7 +8,23 @@ import { FaRocket } from 'react-icons/fa';
 
 
 function Portfolio() {
+  const [categoryFilter, setCategoryFilter] = useState('all');
+
+  const fullStack = ["FreeGamezHud", "Hull & Deck", "weather-dashboard", "DeezerDen"];
+  const frontEnd = ["password-generator", "Workday-schedular", "webapi-codequiz"];
+  const backEnd = ["object-relational-mapping", "nosql-socialnetwork"];
+  const pwa = "JATE";
+  const commandLine = ["sql-employee-tracker", "node-readme"];
+  const gitHubGist = "Regex Tutorial: Matching an Email";
+
   const projects = [
+    {
+      title: "FreeGamezHud",
+      description: "FreeGamezHud is a React application designed to provide a platform for managing and exploring free online games. This project encompasses local storage and user authentication - Sign up/login, a dynamic header with navigation links, and a responsive layout for an enhanced user experience. All games are provided by http://freetogame.com/",
+      role: "Sole Author",
+      tools: "MongoDB, Express, JavaScript, React, CSS, Axios, API",
+      githubUrl: "https://github.com/LauerPeter/freegamezhud",
+    },
     {
       title: "Hull & Deck",
       description: "Hull & Deck is a fictitious e-commerce site for selling watercraft, showcasing React skills. Designed and developed the back-end using MongoDB as the database and Express.js for routing. Seeded the database with 20 different watercraft ensuring the data accurately represented the products. Created robust routes for manipulating data across the site, allowing users to seamlessly browse and interact with products. Built product and user models and implemented a cart schema attached to the user model, enabling users to add products to their cart. To facilitate data manipulation and interaction, created controllers for cart, product, and user.",
@@ -45,7 +61,6 @@ function Portfolio() {
       role: "Sole author",
       tools: "HTML, JavaScript, CSS, OpenWeatherMap API",
       githubUrl: "https://github.com/LauerPeter/weather-dashboard",
-      deployedUrl: "https://lauerpeter.github.io/weather-dashboard/"
     },
     {
       title: "object-relational-mapping",
@@ -90,7 +105,6 @@ function Portfolio() {
       role: "Sole Author",
       tools: "JavaScript, CodeMirror, IndexedDB",
       githubUrl: "https://github.com/LauerPeter/pwa-text-editor",
-      deployedUrl: "https://pwa-teditor-b5d50a805afd.herokuapp.com/",
     },
     {
       title: "webapi-codequiz",
@@ -102,37 +116,78 @@ function Portfolio() {
     },
   ];
 
+  const categoryOptions = [
+    { label: 'All Categories', value: 'all' },
+    { label: 'Full Stack', value: 'fullStack' },
+    { label: 'Front End', value: 'frontEnd' },
+    { label: 'Back End', value: 'backEnd' },
+    { label: 'PWA', value: 'pwa' },
+    { label: 'Command Line', value: 'commandLine' },
+    { label: 'GitHub Gist', value: 'gitHubGist' },
+  ];
+
+  const filteredProjects = projects.filter((project) => {
+    const categoryMatch =
+      categoryFilter === 'all' ||
+      (categoryFilter === 'fullStack' && fullStack.includes(project.title)) ||
+      (categoryFilter === 'frontEnd' && frontEnd.includes(project.title)) ||
+      (categoryFilter === 'backEnd' && backEnd.includes(project.title)) ||
+      (categoryFilter === 'pwa' && pwa.includes(project.title)) ||
+      (categoryFilter === 'commandLine' && commandLine.includes(project.title)) ||
+      (categoryFilter === 'gitHubGist' && gitHubGist.includes(project.title));
+
+    return categoryMatch;
+  });
+
   return (
     <div>
-    <div className="project-grid">
-      {projects.map((project, index) => (
-        <div className="project-card" key={index}>
-          <div className="project-background">
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <div className="project-role-tool">
-              <ul>
-                <li>Role: {project.role}</li>
-                <li>Tools: {project.tools}</li>
-             </ul>
-           </div>
-            <div>
-              <button className="buttonlinkrepo" onClick={() => window.open(project.githubUrl, "GitHub")}>
-              <FontAwesomeIcon icon={['fab', 'github']} />  GitHub Repo
-              </button>
-              {project.deployedUrl && (
-              <button className="buttonlinkapp" onClick={() => window.open(project.deployedUrl, "live-site")}>
-               <FaRocket /> Deployed App
-              </button>
-              )}
+      <div className='filterDropdown'>
+        <label htmlFor='categoryDropdown'>Category: </label>
+        <select
+          onChange={(e) => setCategoryFilter(e.target.value)}
+          value={categoryFilter}
+        >
+          {categoryOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className='project-grid'>
+        {filteredProjects.map((project, index) => (
+          <div className='project-card' key={index}>
+            <div className='project-background'>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className='project-role-tool'>
+                <ul>
+                  <li>Role: {project.role}</li>
+                  <li>Tools: {project.tools}</li>
+                </ul>
+              </div>
+              <div>
+                <button
+                  className='buttonlinkrepo'
+                  onClick={() => window.open(project.githubUrl, 'GitHub')}
+                >
+                  <FontAwesomeIcon icon={['fab', 'github']} /> GitHub Repo
+                </button>
+                {project.deployedUrl && (
+                  <button
+                    className='buttonlinkapp'
+                    onClick={() => window.open(project.deployedUrl, 'live-site')}
+                  >
+                    <FaRocket /> Deployed App
+                  </button>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
 }
-
 
 export default Portfolio;
