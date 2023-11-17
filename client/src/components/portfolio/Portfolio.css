@@ -16,6 +16,24 @@
   padding-top: 10px;
 }
 
+label {
+  margin-right: 10px;
+  font-size: 18px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+select {
+  transition: border-color 0.3s ease-in-out;
+}
 .project-card {
   position: relative;
   background-color: #708090;
