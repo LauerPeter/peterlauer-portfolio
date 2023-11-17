@@ -56,9 +56,6 @@ As Follows: npm i (root) | cd client | npm i | ..cd | cd server | npm i | ..cd
 
 - https://peterlauer-portfolio-e7f9019d6d53.herokuapp.com/
 
-## Video
-
-https://github.com/LauerPeter/peterlauer-portfolio/assets/135652706/44103102-914a-414c-9bb2-3a6267458702
 
 
 
