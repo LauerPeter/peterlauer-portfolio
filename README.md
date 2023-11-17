@@ -2,6 +2,8 @@
 
 Welcome to my React Portfolio! I thought I would upload it to github so I can share the code with anyone interested. 
 
+- https://peterlauer-portfolio-e7f9019d6d53.herokuapp.com/
+
 ## Description
 
 This is my first portfolio website as a junior developer. 
@@ -52,9 +54,7 @@ As Follows: npm i (root) | cd client | npm i | ..cd | cd server | npm i | ..cd
 
 - MIT 
 
-## links
 
-- https://peterlauer-portfolio-e7f9019d6d53.herokuapp.com/
 
 
 
