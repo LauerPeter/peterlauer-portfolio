@@ -8,10 +8,6 @@ Welcome to my React Portfolio! I thought I would upload it to github so I can sh
 
 This is my first portfolio website as a junior developer. 
 
-## Features
-
-When you first load in my site you will be brough to my about me page with a recent photo of me. Through the header component you navigate to other components such as my - portfolio component with all my current best projects which I plan on consistantly updating, my current resume - which can be downloaded as docx file, and lastly a contact component which will send me a message directly!
-
 ## Usage
 
 To show potential employers, friends, colleagues, or anyone wanting to see a junior web developers portfolio!
